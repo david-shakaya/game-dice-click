@@ -2,21 +2,39 @@ import * as basicLightbox from '../node_modules/basiclightbox/src/scripts/main.j
 
 const buttonRef = document.querySelector('.button-js');
 const divGameAreaRef = document.querySelector('.wrapper-game-area');
-
-
-const x = Math.floor(Math.random() * 780)
-const y = Math.floor(Math.random() * 290)
-
-divGameAreaRef.insertAdjacentHTML('beforebegin', '<div class="box-red-js"></div>');
+const btnStartRef = document.querySelector('.menu-btn-start');
 const box = document.querySelector('.box-red-js');
-box.style.transform = `translate(${x}px, ${y}px)`;
+
+
+btnStartRef.addEventListener('click', startGame)
+const obj ={
+    x: Math.floor(Math.random() * 780),
+    y: Math.floor(Math.random() * 280)
+}
+
+
+function startGame() {
+
+    divGameAreaRef.insertAdjacentHTML('beforebegin', '<div class="box-red-js"></div>');
+    const box = document.querySelector('.box-red-js');
+    box.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
+    
+    box.addEventListener('click', () => {
+        const x = Math.floor(Math.random() * 780);
+        const y = Math.floor(Math.random() * 280);
+    box.style.transform = `translate(${x}px, ${y}px)`;
+})
+}
+
+
+
+
+
+
 // const newDiv = document.createElement('div')
 // newDiv.setAttribute('width', '10px')
 // newDiv.setAttribute('heigth', '10px')
 
-
-divGameAreaRef.append(newDiv)
-console.log(newDiv);
 
 
 // Модалка
