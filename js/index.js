@@ -5,6 +5,8 @@ const divGameAreaRef = document.querySelector('.wrapper-game-area');
 const btnStartRef = document.querySelector('.menu-btn-start');
 const box = document.querySelector('.box-red-js');
 const spanPoints = document.querySelector('.header-text-points');
+const spanTaimerRef = document.querySelector('.timer');
+
 let caunter = 0;
 
 btnStartRef.addEventListener('click', startGame)
@@ -21,7 +23,7 @@ function startGame() {
     btnStartRef.setAttribute('disabled', 'disabled' )
     const box = document.querySelector('.box-red-js');
     box.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
-    
+    getTaimer()
     box.addEventListener('click', () => {
        //При клике приплюсовует к спану очки
         caunter += 2;
@@ -36,13 +38,21 @@ function startGame() {
 
 // Таймер через сраку(улучшаем)
 let t = 0;
-let timer;
-dfs()
+let timer
 
-function dfs() {
-    t +=1
-    timer = setTimeout(dfs, 1000) 
-    console.log(t);
+
+function getTaimer() {
+   
+    if (t === 30) {
+        return (
+            spanTaimerRef.textContent = `30 сек.`,
+            openModal()
+        )
+
+    }
+     t +=1
+    setTimeout(getTaimer, 1000) 
+   spanTaimerRef.textContent = `${t} сек.`
 }
 
 
@@ -64,5 +74,4 @@ function openModal() {
             instance.close()                 //Просто вызываем встроееный метод и не нужно снимать слушатель
         })
     }
-     console.log(instance.visible());
 }
