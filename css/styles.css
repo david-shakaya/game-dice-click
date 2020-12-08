@@ -23,6 +23,7 @@ li {
 }
 .wrapper-header-element {
   display: flex;
+  align-items: center;
 }
 
 .menu-list {
@@ -45,15 +46,17 @@ li {
 .wrapper-game-area {
   border: black solid 2px;
   width: 800px;
-  height: 300px;
+  height: 400px;
   background-image: url(/images/bimg.jpg);
 }
 
 .box-red-js {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: brown;
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/frog.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .modal {
   padding: 10px;

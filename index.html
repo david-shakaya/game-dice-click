@@ -8,10 +8,13 @@
 
 </head>
 <body>
+    <!-- <audio autoplay src="./images/02865.mp3"></audio -->
+        <bgsound src="./images/02865.mp3" loop="1" volume="50" balance="0" />
     <div class="container">
         <header class="header">
             <h1 class="title">Убери Кубики</h1>
             <div class="wrapper-header-element">
+                
                 <ul class="menu-list">
                     <li>
                         <button class="menu-btn-start" type="button">start</button>
@@ -24,7 +27,7 @@
                     <ul>
                         <li>
                             <p>Счет</p>
-                            <span>37</span>
+                            <span class="header-text-points">0</span>
                         </li>
                         <li>
                             <p>Время</p>
@@ -53,7 +56,7 @@
 
 
     <!-- //Модалка добавить открытие по завершению игры -->
-<button type="button" class="open">Открыть модалку</button>
+<button type="button" class="open" >Открыть модалку</button>
 <template id="modal">
     <div class="modal">
         <p>I'm a modal created from a DOM element/node.</p>
