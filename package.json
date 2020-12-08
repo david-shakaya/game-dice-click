@@ -1,0 +1,22 @@
+{
+  "name": "game-dice-click",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-shakaya/game-dice-click.git"
+  },
+  "author": "shakaya david",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-shakaya/game-dice-click/issues"
+  },
+  "homepage": "https://github.com/david-shakaya/game-dice-click#readme",
+  "dependencies": {
+    "basiclightbox": "^5.0.3"
+  }
+}

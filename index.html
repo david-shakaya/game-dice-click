@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кубики</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./node_modules/basiclightbox/dist/basicLightbox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Убери Кубики</h1>
+            <div class="wrapper-header-element">
+                <ul class="menu-list">
+                    <li>
+                        <button class="menu-btn-start" type="button">start</button>
+                    </li>
+                    <li>
+                        <button class="menu-btn-newGame" type="button">new game</button>
+                    </li>
+                </ul>
+                <div class="header-wrapper">
+                    <ul>
+                        <li>
+                            <p>Счет</p>
+                            <span>37</span>
+                        </li>
+                        <li>
+                            <p>Время</p>
+                            <span>1.00</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wrapper-list-players">
+                    <ul class=" list-players">
+                        <li class="list-item-players">Sergey</li>
+                        <li class="list-item-players">Evgeniy</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+       <main class="main">
+           <section class="game-area">
+               <div class="wrapper-game-area">
+               </div>
+               <div class="result-table">
+                   <p>Резултат</p>
+                   <p>cxtn pf buhe</p>
+               </div>
+           </section>
+       </main>
+
+
+    <!-- //Модалка добавить открытие по завершению игры -->
+<button type="button" class="open">Открыть модалку</button>
+<template id="modal">
+    <div class="modal">
+        <p>I'm a modal created from a DOM element/node.</p>
+        <input type="text">
+        <button type="button" class="close">Закрыть</button>
+    </div>
+</template>
+
+
+
+
+     </div>
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>
