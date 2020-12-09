@@ -1,5 +1,6 @@
 import * as basicLightbox from '../node_modules/basiclightbox/src/scripts/main.js'
 
+
 const buttonRef = document.querySelector('.button-js');
 const divGameAreaRef = document.querySelector('.wrapper-game-area');
 const btnStartRef = document.querySelector('.menu-btn-start');
@@ -18,6 +19,7 @@ const obj = {
 
 
 function startGame() {
+ 
 
     divGameAreaRef.insertAdjacentHTML('beforebegin', '<div class="box-red-js" ></div>');
     btnStartRef.setAttribute('disabled', 'disabled' )
@@ -25,6 +27,7 @@ function startGame() {
     box.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
     getTaimer()
     box.addEventListener('click', () => {
+ 
        //При клике приплюсовует к спану очки
         caunter += 2;
         spanPoints.textContent = caunter
@@ -57,21 +60,23 @@ function getTaimer() {
 
 
 
-
 // Модалка
 const buttonOpenRef = document.querySelector('.open');
 const instance = basicLightbox.create(  
-    document.querySelector('#modal')
+    document.querySelector('#modal'),
+   {closable: false}
 )
 buttonOpenRef.addEventListener('click',openModal)
 
 function openModal() {
     instance.show()
-
     if (instance.visible()) {
-        const close =document.querySelector('.close');
+       
+        const close = document.querySelector('.close');
+        
         close.addEventListener('click', () => {
             instance.close()                 //Просто вызываем встроееный метод и не нужно снимать слушатель
         })
     }
+
 }

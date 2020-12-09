@@ -67,3 +67,16 @@ li {
   text-align: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
+/* 
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  display: flex;
+  align-items: center;
+  width: 1%;
+  height: 30px;
+  background-color: green;
+} */
