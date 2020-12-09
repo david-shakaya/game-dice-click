@@ -20,6 +20,8 @@ const obj = {
 
 function startGame() {
     btnStartRef.removeEventListener('click', startGame)
+    //Что бы удрать вторую жабу которая появляется во время наж кнопки старт нужно
+    //найти этот див после старта и удалить
     divGameAreaRef.insertAdjacentHTML('beforebegin', '<div class="box-red-js" ></div>');
     btnStartRef.setAttribute('disabled', 'disabled' )
     const box = document.querySelector('.box-red-js');
@@ -98,4 +100,7 @@ function removes() {
     caunter = 0
     btnStartRef.removeAttribute('disabled', 'disabled')
     btnStartRef.addEventListener('click', startGame)
+
+
+    
 }
