@@ -62,9 +62,17 @@
 <button type="button" class="open" >Открыть модалку</button>
 <template id="modal">
     <div class="modal">
-        <p>Не плохо!!!</p>
+        <h3>Не плохо!!!</h3>
+        <p class="points-result-js"></p>
+        <p>Напиши имя и попади в историю!</p>
         <input type="text">
-        <button type="button" class="close">Закрыть</button>
+        <button type="submit" class="btn-submit">Ок</button>
+   
+        <button type="button" class="close-btn">
+            <svg width="25px" height="25px">
+            <use class="icon-close-menu-svg" href="./images/sprite.svg#icon-close"></use>
+        </svg>
+       </button>
     </div>
 </template>
 

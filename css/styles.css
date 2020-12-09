@@ -80,3 +80,33 @@ li {
   height: 30px;
   background-color: green;
 } */
+
+.close-btn {
+  display: flex;
+  position: absolute;
+  transform: translate(30px, -30px);
+  top: 16px;
+  right: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: transparent;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #fff;
+  background-color: #2196f3;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+svg:hover {
+  fill: #fff;
+}

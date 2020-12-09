@@ -8,6 +8,7 @@ const box = document.querySelector('.box-red-js');
 const spanPoints = document.querySelector('.header-text-points');
 const spanTaimerRef = document.querySelector('.timer');
 
+
 let caunter = 0;
 
 btnStartRef.addEventListener('click', startGame)
@@ -39,6 +40,8 @@ function startGame() {
 })
 }
 
+
+
 // Таймер через сраку(улучшаем)
 let t = 0;
 let timer
@@ -46,12 +49,11 @@ let timer
 
 function getTaimer() {
    
-    if (t === 30) {
+    if (t === 3) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
             openModal()
         )
-
     }
      t +=1
     setTimeout(getTaimer, 1000) 
@@ -69,14 +71,29 @@ const instance = basicLightbox.create(
 buttonOpenRef.addEventListener('click',openModal)
 
 function openModal() {
+    
     instance.show()
     if (instance.visible()) {
+        const textPointsResultRef =document.querySelector('.points-result-js');
        
-        const close = document.querySelector('.close');
+        addText(textPointsResultRef)
+
+        const close = document.querySelector('.close-btn');
         
         close.addEventListener('click', () => {
             instance.close()                 //Просто вызываем встроееный метод и не нужно снимать слушатель
+            removes()
         })
     }
 
+}
+
+
+function addText(point) {
+          point.textContent = `Количество очков: ${caunter}`  
+}
+
+function removes() {
+    spanTaimerRef.textContent = '00.00'
+    spanPoints.textContent = 0
 }
