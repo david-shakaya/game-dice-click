@@ -1,10 +1,10 @@
 import * as basicLightbox from '../node_modules/basiclightbox/src/scripts/main.js'
 
 
-const buttonRef = document.querySelector('.button-js');
+// const buttonRef = document.querySelector('.button-js');
 const divGameAreaRef = document.querySelector('.wrapper-game-area');
 const btnStartRef = document.querySelector('.menu-btn-start');
-const box = document.querySelector('.box-red-js');
+// const box = document.querySelector('.box-red-js');
 const spanPoints = document.querySelector('.header-text-points');
 const spanTaimerRef = document.querySelector('.timer');
 
@@ -18,10 +18,8 @@ const obj = {
     y: Math.floor(Math.random() * 280)
 }
 
-
 function startGame() {
- 
-
+    btnStartRef.removeEventListener('click', startGame)
     divGameAreaRef.insertAdjacentHTML('beforebegin', '<div class="box-red-js" ></div>');
     btnStartRef.setAttribute('disabled', 'disabled' )
     const box = document.querySelector('.box-red-js');
@@ -52,7 +50,8 @@ function getTaimer() {
     if (t === 3) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
-            openModal()
+            openModal(),
+            t=0
         )
     }
      t +=1
@@ -63,12 +62,12 @@ function getTaimer() {
 
 
 // Модалка
-const buttonOpenRef = document.querySelector('.open');
+// const buttonOpenRef = document.querySelector('.open');
 const instance = basicLightbox.create(  
     document.querySelector('#modal'),
    {closable: false}
 )
-buttonOpenRef.addEventListener('click',openModal)
+// buttonOpenRef.addEventListener('click',openModal)
 
 function openModal() {
     
@@ -96,4 +95,7 @@ function addText(point) {
 function removes() {
     spanTaimerRef.textContent = '00.00'
     spanPoints.textContent = 0
+    caunter = 0
+    btnStartRef.removeAttribute('disabled', 'disabled')
+    btnStartRef.addEventListener('click', startGame)
 }
