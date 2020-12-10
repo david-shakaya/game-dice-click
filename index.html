@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кубики</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./node_modules/basiclightbox/dist/basicLightbox.min.css">
 
@@ -17,10 +19,10 @@
                 
                 <ul class="menu-list">
                     <li>
-                        <button class="menu-btn-start" type="button">start</button>
+                        <button class="btn menu-btn-start" type="button">start</button>
                     </li>
                     <li>
-                        <button class="menu-btn-newGame" type="button">new game</button>
+                        <button class="btn menu-btn-newGame" type="button">new game</button>
                     </li>
                 </ul>
                 <div class="header-wrapper">
@@ -31,14 +33,15 @@
                         </li>
                         <li>
                             <p>Время</p>
+                            <!-- <div id="app"></div> СКОПИР ТАЙМЕР -->
                             <span class="timer">00.00</span>
                         </li>
                     </ul>
                 </div>
                 <div class="wrapper-list-players">
+                    <h2>Таблица рекордов</h2>
                     <ul class=" list-players">
-                        <li class="list-item-players">Sergey</li>
-                        <li class="list-item-players">Evgeniy</li>
+                       
                     </ul>
                 </div>
             </div>
@@ -62,17 +65,19 @@
 <button type="button" class="open" >Открыть модалку</button>
 <template id="modal">
     <div class="modal">
-        <h3>Не плохо!!!</h3>
-        <p class="points-result-js"></p>
-        <p>Напиши имя и попади в историю!</p>
-        <input type="text">
-        <button type="submit" class="btn-submit">Ок</button>
-   
-        <button type="button" class="close-btn">
-            <svg width="25px" height="25px">
-            <use class="icon-close-menu-svg" href="./images/sprite.svg#icon-close"></use>
-        </svg>
-       </button>
+        <form action="" class="form-action">
+            <h3>Не плохо!!!</h3>
+            <p class="points-result-js"></p>
+            <p>Напиши имя и попади в историю!</p>
+            <input type="text" class="input-js">
+            <button type="submit" class="btn btn-submit">Ок</button>
+            
+            <button type="button" class="close-btn">
+                <svg width="25px" height="25px">
+                    <use class="icon-close-menu-svg" href="./images/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
+        </form>
     </div>
 </template>
 

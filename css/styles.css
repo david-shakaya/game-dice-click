@@ -15,6 +15,36 @@ h3 {
 li {
   list-style: none;
 }
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+}
+.btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #26a69a;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.btn:hover {
+  background-color: #2bbbad;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
 .container {
   padding-left: 40px;
   padding-right: 40px;
@@ -36,7 +66,7 @@ li {
 
 .header-wrapper > ul {
   display: flex;
-  margin-right: 200px;
+  margin-right: 125px;
 }
 
 .header-wrapper > ul > li:not(:last-child) {
@@ -58,6 +88,15 @@ li {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.box-danger-js {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/frog.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .modal {
   padding: 10px;
   width: 550px;
@@ -110,3 +149,58 @@ li {
 svg:hover {
   fill: #fff;
 }
+
+/* тайьер */
+/* 
+.base-timer {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+} */
