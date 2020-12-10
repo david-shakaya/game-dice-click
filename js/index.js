@@ -12,7 +12,7 @@ const ilListPlayersRef =document.querySelector('.list-players');
 
 
 let caunter = 0;
-
+let string = ''
 btnNewGameRef.addEventListener('click', startGame)
 btnStartRef.addEventListener('click', startGame)
 
@@ -20,6 +20,38 @@ const obj = {
     x: Math.floor(Math.random() * 780),
     y: Math.floor(Math.random() * 280)
 }
+const objA = {
+    x: Math.floor(Math.random() * 780),
+    y: Math.floor(Math.random() * 280)
+}
+const objB = {
+    x: Math.floor(Math.random() * 780),
+    y: Math.floor(Math.random() * 280)
+}
+const objC = {
+    x: Math.floor(Math.random() * 780),
+    y: Math.floor(Math.random() * 280)
+}
+//масив других жаб
+const arrFrogs = [
+    `<div class="box-rasta" style="transform: translate(${objC.x}px, ${objC.y}px);" ></div>`,
+    // `<div class="box-danger" style="transform: translate(${objA.x}px, ${objA.y}px);"></div>`,
+    `<div class="box-orang" style="transform: translate(${objB.x}px, ${objB.y}px);"></div>`
+];
+
+
+// arrFrogs[Math.floor(Math.random() * arrFrogs.length)]
+
+
+
+// function z() {
+    
+//     console.log('dd')
+// }
+// setInterval(z, 3000);
+// console.log(z());
+   
+// console.log(frog);
 
 function startGame() {
 
@@ -27,25 +59,93 @@ function startGame() {
     btnNewGameRef.removeEventListener('click', startGame)
 
     divGameAreaRef.insertAdjacentHTML('beforebegin', '<div class="box-red-js" ></div>');
+  
+    
+    // setInterval(generateFrog, 2000);// другие жабы
+
+
+    
+
     btnStartRef.setAttribute('disabled', 'disabled')
+    const boxOrangRef = document.querySelector('.box-orang')
+    // const boxDangerRef = document.querySelector('.box-danger')
+    const boxRastaRef = document.querySelector('.box-rasta')// другие жабы
+
     const box = document.querySelector('.box-red-js'); //ДУБЛИРОВАНИЕ НАДО ЧТОТО ПРИДУМАТЬ!!!
     box.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
     getTaimer()
+//     spanTaimerRef.addEventListener('change', getNumber)
+
+// function getNumber(e) {
+//     console.log(e.value);
+// }
+    // const spanTaimerRef = document.querySelector('.timer');
+   
     box.addEventListener('click', () => {
  
        //При клике приплюсовует к спану очки
         caunter += 2;
         spanPoints.textContent = caunter
+         
 
         const x = Math.floor(Math.random() * 780);
         const y = Math.floor(Math.random() * 380);
         box.style.transform = `translate(${x}px, ${y}px)`;
-        
-    
     })
+
+    // if(boxOrangRef){
+    //  boxOrangRef.addEventListener('click', () => {
+    //     const x = Math.floor(Math.random() * 780);
+    //     const y = Math.floor(Math.random() * 380);
+    //     boxOrangRef.style.transform = `translate(${x}px, ${y}px)`;
+    //  })
+    // }
+    // if(boxDangerRef){
+    //   boxDangerRef.addEventListener('click', () => {
+    //     const x = Math.floor(Math.random() * 780);
+    //     const y = Math.floor(Math.random() * 380);
+    //     boxDangerRef.style.transform = `translate(${x}px, ${y}px)`;
+    //   })
+    // }
+
+    if (string === '2 сек.') {
+        divGameAreaRef.insertAdjacentHTML('afterbegin', arrFrogs[Math.floor(Math.random() * arrFrogs.length)])
+const parent = document.querySelectorAll('.wrapper-game-area > div');
+    if (boxRastaRef) {
+        console.log('yes');
+      }
+    }
+
+    //  boxRastaRef.addEventListener('click', randomPlace)
     
+
+}// событие старт
+
+function randomPlace() {
+    const boxRastaRef = document.querySelector('.box-rasta')
+    boxRastaRef.removeEventListener('click', randomPlace)
+    boxRastaRef.remove()
+     const x = Math.floor(Math.random() * 780);
+        const y = Math.floor(Math.random() * 380);
+         boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
 }
 
+// function removeBoxFrog() {
+//     if()
+// }
+
+
+// function addAllBoxFrog(orang, danger, rasta) {
+//     if (orang) {
+//     orang.style.transform = `translate(${objA.y}px, ${obj.x}px)`    
+//     }
+//     if (danger) {
+//     danger.style.transform = `translate(${obj.y}px, ${objA.x}px)`    
+//     }
+//     if (rasta) {
+//     rasta.style.transform = `translate(${objA.x}px, ${objA.y}px)`
+//     }
+// }
 
 
 // Таймер через сраку(улучшаем)
@@ -55,7 +155,7 @@ let timer
 
 function getTaimer() {
    
-    if (t === 3) {
+    if (t === 5) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
             openModal(),
@@ -64,9 +164,13 @@ function getTaimer() {
     }
      t +=1
     setTimeout(getTaimer, 1000) 
-   spanTaimerRef.textContent = `${t} сек.`
-}
+    spanTaimerRef.textContent = `${t} сек.`
 
+    
+    if (spanTaimerRef.textContent === '2 сек.') {
+   string = '2 сек.'
+   }
+}
 
 
 // Модалка
@@ -145,7 +249,6 @@ function removes() {
     btnNewGameRef.addEventListener('click', startGame)
      
 }
-
 
 
 // ТАЙМЕР

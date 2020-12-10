@@ -88,11 +88,28 @@ p {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.box-danger-js {
+.box-rasta {
   position: absolute;
   width: 55px;
   height: 55px;
-  background-image: url(/images/frog.png);
+  background-image: url(/images/frog-rasta.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.box-danger {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/danger-frog.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.box-orang {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/frog-orang.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
