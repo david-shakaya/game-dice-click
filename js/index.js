@@ -20,6 +20,7 @@ audio.src = './images/frog-sound.mp3';
 // audio.play();
 
 let caunter = 0;
+let saveCaunter = 0;
 let string = ''
 btnNewGameRef.addEventListener('click', startGame)
 btnStartRef.addEventListener('click', startGame)
@@ -108,6 +109,7 @@ function startGame() {
        //При клике приплюсовует к спану очки
    
         caunter += 2;
+        saveCaunter += 2;
         spanPoints.textContent = caunter
          audio.play();
 
@@ -232,7 +234,9 @@ function handleRemoveRasta(e) {
 
     if (e) {
         caunter += 3;
-         spanPoints.textContent = caunter
+        saveCaunter += 3;
+        spanPoints.textContent = caunter
+        
         const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
         // boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
           audio.play();
@@ -244,7 +248,8 @@ function handleRemoveOrange(e) {
         
     
     if (e) {
-        caunter -= 5
+        caunter -= 5;
+        saveCaunter -= 5;
         spanPoints.textContent = caunter
         const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
         boxOrangRef.removeEventListener('click', handleRemoveOrange)
@@ -260,11 +265,6 @@ function getRandomInt() {
     // Math.random() * Math.floor(380)
     
 }
-console.log(getRandomInt());
-console.log(getRandomInt());
-console.log(getRandomInt());
-console.log(getRandomInt());
-
 
 
 
@@ -277,7 +277,7 @@ const instance = basicLightbox.create(
 // buttonOpenRef.addEventListener('click',openModal)
 
 function openModal() {
-    
+  
     instance.show()
     if (instance.visible()) {
         const textPointsResultRef =document.querySelector('.points-result-js');
@@ -318,11 +318,13 @@ function openModal() {
 }
 
 
+console.log(saveCaunter);
 function saveLocalStorage(inputName) { //сохраня в локал стораж
     localStorage.setItem('nameUser', inputName)
     if (localStorage.getItem('nameUser')) {
+        console.log(saveCaunter);
         const nameUser = localStorage.getItem('nameUser');
-        addNameInTable(nameUser, caunter) 
+        addNameInTable(nameUser, saveCaunter) 
     }
 }
 
