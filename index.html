@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- <audio autoplay src="./images/02865.mp3"></audio -->
-        <!-- <bgsound src="./images/02865.mp3" loop="1" volume="50" balance="0" /> -->
+        <!-- <bgsound src="./images/02865.mp3" loop="100" volume="50" balance="0" /> -->
     <div class="container">
         <header class="header">
             <h1 class="title">Слови жаб</h1>
@@ -50,16 +50,11 @@
            <section class="game-area">
                <div class="wrapper-game-area">
                </div>
-               <div class="result-table">
-                   <p>Резултат</p>
-                   <p>cxtn pf buhe</p>
-               </div>
            </section>
        </main>
 
 
     <!-- //Модалка добавить открытие по завершению игры -->
-<button type="button" class="open" >Открыть модалку</button>
 <template id="modal">
     <div class="modal">
         <form action="" class="form-action">
@@ -78,9 +73,15 @@
     </div>
 </template>
 
-
-
-
+<div class="list-static-frog">
+<div class="static-frog-grenn"></div>
+<p>"Зеленая жаба"+2 очка</p>
+<div class="static-frog-rasta"></div>
+<p>"Жаба Растаман"+3 очка</p>
+<div class="static-frog-orange"></div>
+<p>"Желтая жаба"-5 очков</p>
+</div>
+<p>Игра длиться 30 сек. За это время постарайтесь набрать как-можно больше очков=)</p>
      </div>
     <script src="./js/index.js" type="module"></script>
     <script src="./js/progres-bar.js" type="module"></script>

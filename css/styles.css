@@ -79,7 +79,13 @@ p {
   height: 400px;
   background-image: url(/images/bimg.jpg);
 }
+.list-static-frog {
+  display: flex;
+}
 
+/* .list-static-frog > div:not(:last-child) {
+  margin-right: 50px;
+} */
 .box-red-js {
   position: absolute;
   width: 55px;
@@ -88,8 +94,23 @@ p {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.static-frog-grenn {
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/frog.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .box-rasta {
   position: absolute;
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/frog-rasta.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.static-frog-rasta {
   width: 55px;
   height: 55px;
   background-image: url(/images/frog-rasta.png);
@@ -107,6 +128,13 @@ p {
 
 .box-orang {
   position: absolute;
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/frog-orang.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.static-frog-orange {
   width: 55px;
   height: 55px;
   background-image: url(/images/frog-orang.png);

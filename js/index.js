@@ -8,8 +8,16 @@ const btnNewGameRef =document.querySelector('.menu-btn-newGame');
 // const box = document.querySelector('.box-red-js');
 const spanPoints = document.querySelector('.header-text-points');
 const spanTaimerRef = document.querySelector('.timer');
-const ilListPlayersRef =document.querySelector('.list-players');
+const ilListPlayersRef = document.querySelector('.list-players');
 
+var audio = new Audio();
+audio.preload = 'auto';
+audio.src = './images/frog-sound.mp3';
+
+//     var audio = new Audio();
+// audio.preload = 'auto';
+// audio.src = './images/frog-sound.mp3';
+// audio.play();
 
 let caunter = 0;
 let string = ''
@@ -98,9 +106,10 @@ function startGame() {
     box.addEventListener('click', () => {
  
        //При клике приплюсовует к спану очки
+   
         caunter += 2;
         spanPoints.textContent = caunter
-         
+         audio.play();
 
         const x = Math.floor(Math.random() * 780);
         const y = Math.floor(Math.random() * 380);
@@ -171,7 +180,7 @@ let timer
 
 function getTaimer() {
    
-    if (t === 10) {
+    if (t === 30) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
             openModal(),
@@ -183,7 +192,7 @@ function getTaimer() {
     spanTaimerRef.textContent = `${t} сек.`
 
     
-    if (t === 2 || t === 4 || t === 6 || t === 8) {
+    if (t === 2 || t === 4 || t === 6 || t === 8||t===11 || t ===14 || t===16 || t===20 || t===23 ||t===25||t===28) {
        
         divGameAreaRef.insertAdjacentHTML('afterbegin', arrFrogs[Math.floor(Math.random() * arrFrogs.length)])
         const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
@@ -204,7 +213,7 @@ function getTaimer() {
             boxOrangRef.addEventListener('click', handleRemoveOrange)
         }
     }
-    if (t === 3|| t===5|| t=== 7|| t ===9) {
+    if (t === 3|| t===5|| t=== 7|| t ===9||t ===12|| t=== 15|| t===18||t===21|| t===24|| t ===26||t===29) {
       const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
         const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
         
@@ -226,8 +235,7 @@ function handleRemoveRasta(e) {
          spanPoints.textContent = caunter
         const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
         // boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
-          
-
+          audio.play();
         boxRastaRef.removeEventListener('click', handleRemoveRasta)
         boxRastaRef.remove()
     }
@@ -241,6 +249,7 @@ function handleRemoveOrange(e) {
         const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
         boxOrangRef.removeEventListener('click', handleRemoveOrange)
         boxOrangRef.remove()
+        audio.play();
 
         // boxOrangRef.style.transform = `translate(${randomNumber}px, ${y}px)`;
     }
