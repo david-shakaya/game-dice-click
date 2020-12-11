@@ -155,7 +155,7 @@ let timer
 
 function getTaimer() {
    
-    if (t === 5) {
+    if (t === 10) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
             openModal(),
@@ -167,10 +167,56 @@ function getTaimer() {
     spanTaimerRef.textContent = `${t} сек.`
 
     
-    if (spanTaimerRef.textContent === '2 сек.') {
-   string = '2 сек.'
-   }
+    if (t === 2 || t === 4 ||t=== 6 || t=== 8) {
+        divGameAreaRef.insertAdjacentHTML('afterbegin', arrFrogs[Math.floor(Math.random() * arrFrogs.length)])
+        const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
+        const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
+        if (boxRastaRef) {
+            boxRastaRef.addEventListener('click', handleRemoveRasta)
+        } else {
+            boxOrangRef.addEventListener('click', handleRemoveOrange)
+        }
+    }
+    if (t === 3) {
+      const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
+        const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
+        if (boxRastaRef) {
+            boxRastaRef.remove()
+        } else {
+            boxOrangRef.remove()
+        }
+    }
 }
+
+
+function handleRemoveRasta(e) {
+    if (e) {
+        caunter += 3;
+         spanPoints.textContent = caunter
+        const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
+        const x = Math.floor(Math.random() * 780);
+        const y = Math.floor(Math.random() * 380);
+        boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
+        boxRastaRef.removeEventListener('click', handleRemoveRasta)
+        boxRastaRef.remove()
+    }
+}
+function handleRemoveOrange(e) {
+    if (e) {
+        caunter -= 5
+        spanPoints.textContent = caunter
+        const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
+        const x = Math.floor(Math.random() * 780);
+        const y = Math.floor(Math.random() * 380);
+        boxOrangRef.style.transform = `translate(${x}px, ${y}px)`;
+        boxOrangRef.removeEventListener('click', handleRemoveOrange)
+        boxOrangRef.remove()
+    }
+}
+
+
+
+
 
 
 // Модалка
