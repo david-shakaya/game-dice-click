@@ -189,7 +189,7 @@ let timer
 
 function getTaimer() {
    
-    if (t === 3) {
+    if (t === 30) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
             onOpenModal(),
