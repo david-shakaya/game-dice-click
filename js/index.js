@@ -16,6 +16,19 @@ let string = ''
 btnNewGameRef.addEventListener('click', startGame)
 btnStartRef.addEventListener('click', startGame)
 
+const randomNumbersX = [
+     Math.floor(Math.random() * 780),
+    Math.floor(Math.random() * 780),
+    Math.floor(Math.random() * 780),
+    Math.floor(Math.random() * 780),
+    Math.floor(Math.random() * 780),
+    Math.floor(Math.random() * 780),
+    Math.floor(Math.random() * 780)
+]
+// console.log(Math.floor(Math.random() * arrRandomX.length.map((el => el))));
+const randomNumber = randomNumbersX[Math.floor(Math.random() * randomNumbersX.length)];
+console.log(randomNumber);
+
 const obj = {
     x: Math.floor(Math.random() * 780),
     y: Math.floor(Math.random() * 280)
@@ -34,9 +47,9 @@ const objC = {
 }
 //масив других жаб
 const arrFrogs = [
-    `<div class="box-rasta" style="transform: translate(${objC.x}px, ${objC.y}px);" ></div>`,
+    `<div class="box-rasta" style="transform: translate(${randomNumber}px, ${objC.y}px);" ></div>`,
     // `<div class="box-danger" style="transform: translate(${objA.x}px, ${objA.y}px);"></div>`,
-    `<div class="box-orang" style="transform: translate(${objB.x}px, ${objB.y}px);"></div>`
+    `<div class="box-orang" style="transform: translate(${randomNumber}px, ${objB.y}px);"></div>`
 ];
 
 
@@ -70,6 +83,7 @@ function startGame() {
     const boxOrangRef = document.querySelector('.box-orang')
     // const boxDangerRef = document.querySelector('.box-danger')
     const boxRastaRef = document.querySelector('.box-rasta')// другие жабы
+  
 
     const box = document.querySelector('.box-red-js'); //ДУБЛИРОВАНИЕ НАДО ЧТОТО ПРИДУМАТЬ!!!
     box.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
@@ -108,27 +122,27 @@ function startGame() {
     //   })
     // }
 
-    if (string === '2 сек.') {
-        divGameAreaRef.insertAdjacentHTML('afterbegin', arrFrogs[Math.floor(Math.random() * arrFrogs.length)])
-const parent = document.querySelectorAll('.wrapper-game-area > div');
-    if (boxRastaRef) {
-        console.log('yes');
-      }
-    }
+//     if (string === '2 сек.') {
+//         divGameAreaRef.insertAdjacentHTML('afterbegin', arrFrogs[Math.floor(Math.random() * arrFrogs.length)])
+// const parent = document.querySelectorAll('.wrapper-game-area > div');
+//     if (boxRastaRef) {
+//         console.log('yes');
+//       }
+//     }
 
     //  boxRastaRef.addEventListener('click', randomPlace)
     
 
 }// событие старт
 
-function randomPlace() {
-    const boxRastaRef = document.querySelector('.box-rasta')
-    boxRastaRef.removeEventListener('click', randomPlace)
-    boxRastaRef.remove()
-     const x = Math.floor(Math.random() * 780);
-        const y = Math.floor(Math.random() * 380);
-         boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
-}
+// function randomPlace() {
+//     const boxRastaRef = document.querySelector('.box-rasta')
+//     boxRastaRef.removeEventListener('click', randomPlace)
+//     boxRastaRef.remove()
+//      const x = Math.floor(Math.random() * 780);
+//         const y = Math.floor(Math.random() * 380);
+//          boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
+// }
 
 // function removeBoxFrog() {
 //     if()
@@ -152,6 +166,8 @@ function randomPlace() {
 let t = 0;
 let timer
 
+ const x = Math.floor(Math.random() * 780);
+ const y = Math.floor(Math.random() * 380);
 
 function getTaimer() {
    
@@ -167,22 +183,36 @@ function getTaimer() {
     spanTaimerRef.textContent = `${t} сек.`
 
     
-    if (t === 2 || t === 4 ||t=== 6 || t=== 8) {
+    if (t === 2 || t === 4 || t === 6 || t === 8) {
+       
         divGameAreaRef.insertAdjacentHTML('afterbegin', arrFrogs[Math.floor(Math.random() * arrFrogs.length)])
         const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
         const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
         if (boxRastaRef) {
+
+ const x = Math.floor(Math.random() * 780);
+ const y = Math.floor(Math.random() * 380);
+
+            boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
+// boxRastaRef.style.transform = `translate(${randomNumber}px, ${objB.y}px)`;
             boxRastaRef.addEventListener('click', handleRemoveRasta)
         } else {
+             const x = Math.floor(Math.random() * 780);
+             const y = Math.floor(Math.random() * 380);
+               boxOrangRef.style.transform = `translate(${x}px, ${y}px)`;
+            //  boxOrangRef.style.transform = `translate(${randomNumber}px, ${y}px)`;
             boxOrangRef.addEventListener('click', handleRemoveOrange)
         }
     }
-    if (t === 3) {
+    if (t === 3|| t===5|| t=== 7|| t ===9) {
       const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
         const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
+        
         if (boxRastaRef) {
+            // boxRastaRef.removeEventListener('click', handleRemoveRasta)
             boxRastaRef.remove()
         } else {
+         boxOrangRef.removeEventListener('click', handleRemoveOrange)
             boxOrangRef.remove()
         }
     }
@@ -190,31 +220,41 @@ function getTaimer() {
 
 
 function handleRemoveRasta(e) {
+
     if (e) {
         caunter += 3;
          spanPoints.textContent = caunter
         const boxRastaRef = divGameAreaRef.querySelector('.box-rasta');
-        const x = Math.floor(Math.random() * 780);
-        const y = Math.floor(Math.random() * 380);
-        boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
+        // boxRastaRef.style.transform = `translate(${x}px, ${y}px)`;
+          
+
         boxRastaRef.removeEventListener('click', handleRemoveRasta)
         boxRastaRef.remove()
     }
 }
 function handleRemoveOrange(e) {
+        
+    
     if (e) {
         caunter -= 5
         spanPoints.textContent = caunter
         const boxOrangRef = divGameAreaRef.querySelector('.box-orang');
-        const x = Math.floor(Math.random() * 780);
-        const y = Math.floor(Math.random() * 380);
-        boxOrangRef.style.transform = `translate(${x}px, ${y}px)`;
         boxOrangRef.removeEventListener('click', handleRemoveOrange)
         boxOrangRef.remove()
+
+        // boxOrangRef.style.transform = `translate(${randomNumber}px, ${y}px)`;
     }
 }
 
-
+function getRandomInt() {
+  Math.random() * Math.floor(780)
+    // Math.random() * Math.floor(380)
+    
+}
+console.log(getRandomInt());
+console.log(getRandomInt());
+console.log(getRandomInt());
+console.log(getRandomInt());
 
 
 
