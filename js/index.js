@@ -34,6 +34,11 @@ const randomNumbersX = [
     Math.floor(Math.random() * 780),
     Math.floor(Math.random() * 780)
 ]
+
+ if (localStorage.getItem('nameUser')) {
+        const nameUser = localStorage.getItem('nameUser');
+        addNameInTable(nameUser, saveCaunter) 
+    }
 // console.log(Math.floor(Math.random() * arrRandomX.length.map((el => el))));
 const randomNumber = randomNumbersX[Math.floor(Math.random() * randomNumbersX.length)];
 console.log(randomNumber);
@@ -318,11 +323,10 @@ function openModal() {
 }
 
 
-console.log(saveCaunter);
+
 function saveLocalStorage(inputName) { //сохраня в локал стораж
     localStorage.setItem('nameUser', inputName)
     if (localStorage.getItem('nameUser')) {
-        console.log(saveCaunter);
         const nameUser = localStorage.getItem('nameUser');
         addNameInTable(nameUser, saveCaunter) 
     }
