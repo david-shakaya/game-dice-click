@@ -77,7 +77,7 @@ p {
   border: black solid 2px;
   width: 800px;
   height: 400px;
-  background-image: url(./images/bimg.jpg);
+  background-image: url(../images/bimg.jpg);
 }
 .list-static-frog {
   display: flex;
@@ -90,7 +90,7 @@ p {
   position: absolute;
   width: 55px;
   height: 55px;
-  background-image: url(./images/frog.png);
+  background-image: url(../images/frog.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -98,7 +98,7 @@ p {
 .static-frog-grenn {
   width: 55px;
   height: 55px;
-  background-image: url(./images/frog.png);
+  background-image: url(../images/frog.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -106,14 +106,14 @@ p {
   position: absolute;
   width: 55px;
   height: 55px;
-  background-image: url(./images/frog-rasta.png);
+  background-image: url(../images/frog-rasta.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .static-frog-rasta {
   width: 55px;
   height: 55px;
-  background-image: url(./images/frog-rasta.png);
+  background-image: url(../images/frog-rasta.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -121,7 +121,7 @@ p {
   position: absolute;
   width: 55px;
   height: 55px;
-  background-image: url(./images/danger-frog.png);
+  background-image: url(../images/danger-frog.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -130,14 +130,14 @@ p {
   position: absolute;
   width: 55px;
   height: 55px;
-  background-image: url(./images/frog-orang.png);
+  background-image: url(../images/frog-orang.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .static-frog-orange {
   width: 55px;
   height: 55px;
-  background-image: url(./images/frog-orang.png);
+  background-image: url(../images/frog-orang.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
