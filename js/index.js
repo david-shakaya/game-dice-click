@@ -1,5 +1,6 @@
 // import * as basicLightbox from '../node_modules/basiclightbox/src/scripts/main.js'
-
+// const basicLightbox = require('.basiclightbox')
+// console.log(basicLightbox);
 
 // const buttonRef = document.querySelector('.button-js');
 const divGameAreaRef = document.querySelector('.wrapper-game-area');
@@ -9,6 +10,7 @@ const btnNewGameRef =document.querySelector('.menu-btn-newGame');
 const spanPoints = document.querySelector('.header-text-points');
 const spanTaimerRef = document.querySelector('.timer');
 const ilListPlayersRef = document.querySelector('.list-players');
+const bodyRef = document.querySelector('body');
 
 var audio = new Audio();
 audio.preload = 'auto';
@@ -187,10 +189,10 @@ let timer
 
 function getTaimer() {
    
-    if (t === 30) {
+    if (t === 3) {
         return (
             spanTaimerRef.textContent = `30 сек.`,
-            openModal(),
+            onOpenModal(),
             t=0
         )
     }
@@ -275,16 +277,14 @@ function getRandomInt() {
 
 // Модалка
 // const buttonOpenRef = document.querySelector('.open');
-const instance = basicLightbox.create(  
-    document.querySelector('#modal'),
-   {closable: false}
-)
-// buttonOpenRef.addEventListener('click',openModal)
 
-function openModal() {
-  
-    instance.show()
-    if (instance.visible()) {
+// buttonOpenRef.addEventListener('click',openModal)
+function onOpenModal() {
+  window.addEventListener('keydown', onPressEscape)
+  bodyRef.classList.add('show-modal')
+    console.log(bodyRef.classList);
+    
+    if (bodyRef.classList) {
         const textPointsResultRef =document.querySelector('.points-result-js');
         const box = document.querySelector('.box-red-js');
         box.remove()
@@ -304,26 +304,77 @@ function openModal() {
             formRef.removeEventListener('submit', handleSubmit)
             formRef.reset()
             removes()
-            instance.close()                 
+               onCloseModal()
                 console.log(`Спасибо ${inputName}`);
                 saveLocalStorage(inputName)
             }
            
         }
       
+// function onCloseModal() {
+//   window.removeEventListener('keydown', onPressEscape)
+//   bodyRef.classList.remove('show-modal')
+// }
+
 
         const close = document.querySelector('.close-btn');
         
         close.addEventListener('click', () => {
-            instance.close()                 //Просто вызываем встроееный метод и не нужно снимать слушатель
+            window.removeEventListener('keydown', onCloseModal)
+              bodyRef.classList.remove('show-modal')
+                         //Просто вызываем встроееный метод и не нужно снимать слушатель
             removes()
         })
     }
-
 }
 
 
+//>>>>>>  НОВАЯ МОДАЛКА <<<<
+/* НАХОДИМ КЛАССЫ*/
+// Находим кнопку с дата атрибутом  
+// const buttonOpenModalRef = document.querySelector('button[data-action="open-modal"]');
+// const buttonCloseModalRef = document.querySelector('button[data-action="close-modal"]');
+// // находим боди , в сss повешан класс со стилями на боди 
 
+// const backdropRef = document.querySelector('.js-backdrop')
+
+
+// /*  СЛУШАТЕЛИ*/
+// Добавляем слушатель на клик и в функии добавляем клас боди(открыть модалку)
+// buttonOpenModalRef.addEventListener('click', onOpenModal)
+// Добавляем слушатель на клик и в функии УДАЛЯЕМ клас с боди(закрыть модалку)
+// buttonCloseModalRef.addEventListener('click', onCloseModal)
+// Добавляем слушатель на клик что бы при нажатии на серую область backdrop  (закрыть модалку)
+// backdropRef.addEventListener('click', onBackdropClick)
+
+
+// /*  ФУНКЦИИ */
+//Закрывает модалку при нажатии esc. На window вешаем слушатель keydown.
+// На место колбека передаем функцию onPressEscape которая и закрівает модалку.
+
+
+function onCloseModal() {
+  window.removeEventListener('keydown', onPressEscape)
+  bodyRef.classList.remove('show-modal')
+}
+
+// function onBackdropClick(event) {
+//   if (event.target === event.currentTarget) {
+//    onCloseModal()
+//   }
+// }
+
+
+function onPressEscape (event) {
+  if (event.code === 'Escape') {
+      console.log('Потом=)');
+    }
+  }
+
+
+
+
+// >>>>>>>>>>>>>>>
 function saveLocalStorage(inputName) { //сохраня в локал стораж
     localStorage.setItem('nameUser', inputName)
     if (localStorage.getItem('nameUser')) {

@@ -55,23 +55,28 @@
 
 
     <!-- //Модалка добавить открытие по завершению игры -->
-<template id="modal">
+        <div class="backdrop js-backdrop">
+            <div class="modal">
+                <form action="" class="form-action">
+                    <h3>Не плохо!!!</h3>
+                    <p class="points-result-js"></p>
+                    <p>Напиши имя и попади в историю!</p>
+                    <input type="text" class="input-js">
+                    <button type="submit" class="btn btn-submit">Ок</button>
+                
+                    <button type="button" class="close-btn">
+                        <svg width="25px" height="25px">
+                            <use class="icon-close-menu-svg" href="./images/sprite.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+<!-- <template id="modal">
     <div class="modal">
-        <form action="" class="form-action">
-            <h3>Не плохо!!!</h3>
-            <p class="points-result-js"></p>
-            <p>Напиши имя и попади в историю!</p>
-            <input type="text" class="input-js">
-            <button type="submit" class="btn btn-submit">Ок</button>
-            
-            <button type="button" class="close-btn">
-                <svg width="25px" height="25px">
-                    <use class="icon-close-menu-svg" href="./images/sprite.svg#icon-close"></use>
-                </svg>
-            </button>
-        </form>
+       
     </div>
-</template>
+</template> -->
 
 <div class="list-static-frog">
 <div class="static-frog-grenn"></div>
@@ -84,6 +89,7 @@
 <p>Игра длиться 30 сек. За это время постарайтесь набрать как-можно больше очков=)</p>
      </div>
     <script src="./js/index.js" type="module"></script>
+    <script src="dist/basicLightbox.min.js"></script>
     <!-- <script src="./js/progres-bar.js" type="module"></script> -->
 </body>
 </html>
