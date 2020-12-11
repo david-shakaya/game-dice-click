@@ -1,4 +1,4 @@
-import * as basicLightbox from '../node_modules/basiclightbox/src/scripts/main.js'
+// import * as basicLightbox from '../node_modules/basiclightbox/src/scripts/main.js'
 
 
 // const buttonRef = document.querySelector('.button-js');
