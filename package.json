@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+     "build": "webpack --env.mode production --config ./webpack/config.js",
+    "predeploy": "npm run build",
+     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/david-shakaya/game-dice-click/issues"
   },
-  "homepage": "https://github.com/david-shakaya/game-dice-click#readme",
+  "homepage": "https://github.com/david-shakaya/game-dice-click",
   "dependencies": {
     "basiclightbox": "^5.0.3"
   }
